@@ -4,13 +4,12 @@
     <x:Property Name="in_period" Type="InArgument(s:DateTime)" />
     <x:Property Name="in_BPKey" Type="InArgument(x:String)" />
     <x:Property Name="out_pathLogCurrent" Type="OutArgument(x:String)" />
-    <x:Property Name="out_pathMasterBpScheduler" Type="OutArgument(x:String)" />
     <x:Property Name="in_PID" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>992.6037735849056,1822.1886792452829</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>992.6037735849056,1791.3962264150941</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>FolderPath_Manager_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -102,7 +101,7 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Create folder according to master data&#xA;1. Daily&#xA;2. Weekly&#xA;3. Monthly&#xA;4. copy new log every new year&#xA;5. Hanling holiday, public holiday, leap year" DisplayName="FolderPath_Manager" sap:VirtualizedContainerService.HintSize="529.8113207547169,1756.9811320754716" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Create folder according to master data&#xA;1. Daily&#xA;2. Weekly&#xA;3. Monthly&#xA;4. copy new log every new year&#xA;5. Hanling holiday, public holiday, leap year" DisplayName="FolderPath_Manager" sap:VirtualizedContainerService.HintSize="529.8113207547169,1726.1886792452829" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="userLogExist" />
       <Variable x:TypeArguments="x:String" Name="pathMasterBp" />
@@ -116,9 +115,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message FolderPath_Manager" sap:VirtualizedContainerService.HintSize="468.2264150943396,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[String.Format(&quot;{0} for {1}&quot;, &quot;STEP: FolderPath_Manager&quot;, in_period.ToString(&quot;dd-MM-yyyy&quot;))]" />
-    <TryCatch DisplayName="Try Catch Assign Path Folder" sap:VirtualizedContainerService.HintSize="468.2264150943396,443.77358490566036" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Assign Path Folder" sap:VirtualizedContainerService.HintSize="468.2264150943396,412.9811320754717" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:MultipleAssign DisplayName="Multiple Assign Path Folder" sap:VirtualizedContainerService.HintSize="430.18867924528297,223.69811320754715" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign DisplayName="Multiple Assign Path Folder" sap:VirtualizedContainerService.HintSize="430.18867924528297,192.9056603773585" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
           <ui:MultipleAssign.AssignOperations>
             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -135,14 +134,6 @@
                 </ui:AssignOperation.To>
                 <ui:AssignOperation.Value>
                   <InArgument x:TypeArguments="x:String">[String.Format("{0}/{1}/{2}", in_pathMasterFolder, in_BPKey, in_period.ToString("yyyy"))]</InArgument>
-                </ui:AssignOperation.Value>
-              </ui:AssignOperation>
-              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                <ui:AssignOperation.To>
-                  <OutArgument x:TypeArguments="x:String">[out_pathMasterBpScheduler]</OutArgument>
-                </ui:AssignOperation.To>
-                <ui:AssignOperation.Value>
-                  <InArgument x:TypeArguments="x:String">[String.Format("{0}/{1}/{2}/{3}", in_pathMasterFolder, in_BPKey, in_period.ToString("yyyy"), in_period.ToString("yyyy-MM-dd"))]</InArgument>
                 </ui:AssignOperation.Value>
               </ui:AssignOperation>
               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -177,7 +168,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Throw DisplayName="Throw Assign Path Folder Inner Exception" Exception="[New Exception(exception.InnerException.ToString)]" sap:VirtualizedContainerService.HintSize="334.18867924528297,89.66037735849056" sap2010:WorkflowViewState.IdRef="Throw_1" />
+            <Throw DisplayName="Throw Assign Path Folder Inner Exception" Exception="[New Exception(exception.InnerException.ToString)]" sap:VirtualizedContainerService.HintSize="334.18867924528297,87.84905660377358" sap2010:WorkflowViewState.IdRef="Throw_1" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
